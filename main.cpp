@@ -78,14 +78,27 @@ void cloud(){
 }
 
 
-void road(){
+void road(){ //main road
 
     glBegin(GL_POLYGON);   // main
 	glColor3ub(180, 180, 180);
-        glVertex2f(-80, -5);
-        glVertex2f(80, -5);
-        glVertex2f(80, 10);
-        glVertex2f(-80, 10);
+        glVertex2f(-100, -5);
+        glVertex2f(100, -5);
+        glVertex2f(100, 10);
+        glVertex2f(-100, 10);
+    glEnd();
+}
+
+
+
+void road2(){ //road mid
+
+    glBegin(GL_POLYGON);   // main
+	glColor3ub(255, 255, 255);
+        glVertex2f(-100, 2.8);
+        glVertex2f(100, 2.8);
+        glVertex2f(100, 3.8);
+        glVertex2f(-100, 3.8);
     glEnd();
 }
 
@@ -95,120 +108,112 @@ void sea(){
 
     glBegin(GL_POLYGON);   // main
 	glColor3ub(168, 241, 255);
-        glVertex2f(-80, -50);
-        glVertex2f(80, -50);
-        glVertex2f(80, -20);
-        glVertex2f(65, -19);
-        glVertex2f(55, -18);
-        glVertex2f(45, -17);
-        glVertex2f(35, -16);
-        glVertex2f(0, -15);
-        glVertex2f(-35, -16);
-        glVertex2f(-45, -17);
-        glVertex2f(-55, -18);
-        glVertex2f(-65, -19);
-        glVertex2f(-80, -20);
+        glVertex2f(-100, -60);
+        glVertex2f(100, -60);
+        glVertex2f(100, -30);
+        glVertex2f(65, -29);
+        glVertex2f(55, -28);
+        glVertex2f(45, -27);
+        glVertex2f(35, -26);
+        glVertex2f(0, -25);
+        glVertex2f(-35, -26);
+        glVertex2f(-45, -27);
+        glVertex2f(-55, -28);
+        glVertex2f(-65, -29);
+        glVertex2f(-100, -30);
     glEnd();
+
+
+
+
+}
+
+
+void sea_line(){
+
+glBegin(GL_POLYGON);
+	glColor3ub(147, 224, 240);
+        glVertex2f(-60, -40);
+        glVertex2f(-45, -40.5);
+        glVertex2f(-35, -40);
+        glVertex2f(-35, -39.5);
+        glVertex2f(-59, -39);
+    glEnd();
+
 
     glBegin(GL_POLYGON);
 	glColor3ub(147, 224, 240);
         glVertex2f(-60, -30);
-        glVertex2f(-45, -30.5);
-        glVertex2f(-35, -30);
-        glVertex2f(-35, -29.5);
-        glVertex2f(-59, -29);
+        glVertex2f(-30, -30);
+        glVertex2f(-30, -29.5);
+        glVertex2f(-33, -28.5);
+        glVertex2f(-59, -29.7);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+	glColor3ub(147, 224, 240);
+        glVertex2f(50, -40);
+        glVertex2f(20, -40);
+        glVertex2f(20, -39.5);
+        glVertex2f(23, -38.5);
+        glVertex2f(49, -39.7);
+    glEnd();
+
+    glBegin(GL_POLYGON);
+	glColor3ub(147, 224, 240);
+        glVertex2f(-20, -38);
+        glVertex2f(20, -38);
+        glVertex2f(20, -37.5);
+        glVertex2f(23, -36.5);
+        glVertex2f(-29, -37.7);
     glEnd();
 
 
     glBegin(GL_POLYGON);
 	glColor3ub(147, 224, 240);
-        glVertex2f(-60, -20);
-        glVertex2f(-30, -20);
-        glVertex2f(-30, -19.5);
-        glVertex2f(-33, -18.5);
-        glVertex2f(-59, -19.7);
-    glEnd();
-
-    glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
-        glVertex2f(50, -30);
-        glVertex2f(20, -30);
-        glVertex2f(20, -29.5);
-        glVertex2f(23, -28.5);
-        glVertex2f(49, -29.7);
-    glEnd();
-
-    glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
-        glVertex2f(-20, -28);
-        glVertex2f(20, -28);
-        glVertex2f(20, -27.5);
-        glVertex2f(23, -26.5);
-        glVertex2f(-29, -27.7);
+        glVertex2f(-55, -34);
+        glVertex2f(-40, -34.5);
+        glVertex2f(-15, -34);
+        glVertex2f(-13, -33.5);
+        glVertex2f(-13, -32.5);
+        glVertex2f(-9, -33.7);
+        glVertex2f(-50, -34.5);
     glEnd();
 
 
     glBegin(GL_POLYGON);
 	glColor3ub(147, 224, 240);
-        glVertex2f(-55, -24);
-        glVertex2f(-40, -24.5);
-        glVertex2f(-15, -24);
-        glVertex2f(-13, -23.5);
-        glVertex2f(-13, -22.5);
-        glVertex2f(-9, -23.7);
-        glVertex2f(-50, -24.5);
+        glVertex2f(40, -34);
+        glVertex2f(65, -34);
+        glVertex2f(65, -33);
+        glVertex2f(50, -33.5);
+        glVertex2f(43, -33);
     glEnd();
 
 
     glBegin(GL_POLYGON);
 	glColor3ub(147, 224, 240);
-        glVertex2f(40, -24);
-        glVertex2f(65, -24);
-        glVertex2f(65, -23);
-        glVertex2f(50, -23.5);
-        glVertex2f(43, -23);
+        glVertex2f(-75, -37);
+        glVertex2f(-50, -37);
+        glVertex2f(-52, -36.5);
+        glVertex2f(-75, -36.8);
     glEnd();
 
 
     glBegin(GL_POLYGON);
 	glColor3ub(147, 224, 240);
-        glVertex2f(-75, -27);
-        glVertex2f(-50, -27);
-        glVertex2f(-52, -26.5);
-        glVertex2f(-75, -26.8);
+        glVertex2f(-15, -30);
+        glVertex2f(-5, -30);
+        glVertex2f(-4, -31);
+        glVertex2f(25, -30);
+        glVertex2f(25, -29.3);
+        glVertex2f(15, -28.8);
+        glVertex2f(10, -29.2);
+        glVertex2f(-15, -29.5);
     glEnd();
-
-
-    glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
-        glVertex2f(-15, -20);
-        glVertex2f(-5, -20);
-        glVertex2f(-4, -21);
-
-        glVertex2f(25, -20);
-
-        glVertex2f(25, -19.3);
-        glVertex2f(15, -18.8);
-
-        glVertex2f(10, -19.2);
-
-        glVertex2f(-15, -19.5);
-    glEnd();
-
 }
-/* Handler for window-repaint event. Call back when the window first appears and
-whenever the window needs to be re-painted. */
 
 
-
-
-/* Main function: GLUT runs as a console application starting at main()  */
-
-
-
-
-/* Handler for window-repaint event. Call back when the window first appears and
-whenever the window needs to be re-painted. */
 void display() {
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // Set background color to black and opaque
     glClear(GL_COLOR_BUFFER_BIT);         // Clear the color buffer (background)
@@ -216,9 +221,11 @@ void display() {
 
     sky();
     sea();
+    sea_line();
     cloud();
     sun();
     road();
+    road2();
 
     glFlush();  // Render now
 }
@@ -232,7 +239,7 @@ int main(int argc, char** argv) {
     glutCreateWindow("OpenGL Setup Test");
 
     glutDisplayFunc(display);// Register display callback handler for window re-paint
-    gluOrtho2D(-80.0, 80.0, -50.0, 50.0);
+    gluOrtho2D(-100.0, 100.0, -60.0, 60.0);
     glutMainLoop();           // Enter the event-processing loop
     return 0;
 }
