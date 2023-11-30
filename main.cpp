@@ -490,6 +490,77 @@ glBegin(GL_POLYGON);
 }
 
 
+
+void boat(){
+
+
+    glBegin(GL_POLYGON);       // main boat
+	glColor3ub(158, 128, 61);
+        glVertex2f(50, -40);
+        glVertex2f(55, -43.5);
+        glVertex2f(58, -44);
+        glVertex2f(72, -44);
+        glVertex2f(75, -43.5);
+        glVertex2f(80, -40);
+    glEnd();
+
+    glBegin(GL_POLYGON);       // bamboo
+	glColor3ub(95, 72, 23);
+        glVertex2f(64.5, -40);
+        glVertex2f(65.5, -40);
+        glVertex2f(65.5, -25);
+        glVertex2f(64.5, -25);
+    glEnd();
+
+
+    glBegin(GL_POLYGON);       // pall
+	glColor3ub(255, 190, 0);
+        glVertex2f(60, -36);
+        glVertex2f(70, -36);
+        glVertex2f(69, -34);
+        glVertex2f(68.7, -32);
+        glVertex2f(69, -29);
+        glVertex2f(70, -27);
+        glVertex2f(60, -27);
+        glVertex2f(59, -28);
+        glVertex2f(58.3, -32);
+        glVertex2f(59, -35);
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+	glColor3ub(168, 241, 255);
+        glVertex2f(50, -40);
+        glVertex2f(60, -41);
+        glVertex2f(70, -41);
+        glVertex2f(80, -40);
+    glEnd();
+
+
+
+    glBegin(GL_POLYGON);       // son
+	glColor3ub(189, 142, 37);
+        glVertex2f(63, -41);
+        glVertex2f(72, -41);
+        glVertex2f(71, -39);
+        glVertex2f(69, -37.7);
+        glVertex2f(60, -38);
+    glEnd();
+
+    glBegin(GL_POLYGON);       // first son curve
+	glColor3ub(125, 95, 29);
+        glVertex2f(57, -41);
+        glVertex2f(58, -39);
+        glVertex2f(60, -38);
+        glVertex2f(62, -39);
+        glVertex2f(63, -41);
+    glEnd();
+
+
+}
+
+
+
 void display() {
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // Set background color to black and opaque
     glClear(GL_COLOR_BUFFER_BIT);         // Clear the color buffer (background)
@@ -501,13 +572,9 @@ void display() {
     sun();
     road();
     road_mid_line(180,180,180);
-
+    boat();
 
     glFlush();  // Render now
-}
-
-void boat(){
-
 }
 
 
