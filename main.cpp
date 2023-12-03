@@ -1,4 +1,6 @@
 #include <windows.h>  // for MS Windows
+
+
 #include <GL/glut.h>  // GLUT, include glu.h and gl.h
 #include <math.h>
 #include<cstdio>
@@ -117,12 +119,12 @@ void tangle(float x1, float y1, float x2, float y2, float x3, float y3, float r,
 
 void road(){ //main road
 
-    glBegin(GL_POLYGON);   // main
+    glBegin(GL_POLYGON);   // main road
 	glColor3ub(180, 180, 180);
-        glVertex2f(-110, -23);
-        glVertex2f(110, -15);
-        glVertex2f(110, 5);
-        glVertex2f(-110, -3);
+        glVertex2f(-110, -24);
+        glVertex2f(110, -13);
+        glVertex2f(110, 3);
+        glVertex2f(-110, -2);
     glEnd();
 
 
@@ -132,6 +134,25 @@ void road(){ //main road
         glVertex2f(110, -5.5);
         glVertex2f(110, -4);
         glVertex2f(-110, -12);
+    glEnd();
+
+
+    glBegin(GL_POLYGON);   // main road down line
+	glColor3ub(95, 95, 95);
+        glVertex2f(-110, -26);
+        glVertex2f(110, -15);
+        glVertex2f(110, -13);
+        glVertex2f(-110, -24);
+    glEnd();
+
+
+
+    glBegin(GL_POLYGON);   // main road upp line
+	glColor3ub(95, 95, 95);
+        glVertex2f(-110, -2);
+        glVertex2f(110, 2);
+        glVertex2f(110, 4);
+        glVertex2f(-110, 0);
     glEnd();
 
 
@@ -230,12 +251,22 @@ void road_mid_line(int r, int g, int b){   // cross croo line
 }
 
 
+void lamp_post(){
 
+    glBegin(GL_POLYGON);   // main road upp line
+	glColor3ub(59, 81, 0);
+        glVertex2f(-105, -25);
+        glVertex2f(-104, -25);
+        glVertex2f(-104, -15);
+        glVertex2f(-105, -15);
+    glEnd();
+
+}
 
 void river(){
 
-    glBegin(GL_POLYGON);   // main
-	glColor3ub(168, 241, 255);
+    glBegin(GL_POLYGON);   // upp mut
+	glColor3ub(143, 131, 70);
 
         glVertex2f(-110, -60);
         glVertex2f(110, -60);
@@ -255,12 +286,37 @@ void river(){
     glEnd();
 
 
+    glBegin(GL_POLYGON);   // main river
+	glColor3ub(168, 241, 255);
 
-    glBegin(GL_POLYGON);   // main
-	glColor3ub(255, 255, 255);
+        glVertex2f(-110, -60);
+        glVertex2f(110, -60);
 
-        glVertex2f(-110, -80);
-        glVertex2f(110, -80);
+        glVertex2f(110, -34);
+        glVertex2f(65, -31);
+        glVertex2f(55, -30);
+        glVertex2f(45, -29);
+        glVertex2f(35, -28);
+        glVertex2f(0, -27);
+        glVertex2f(-35, -28);
+        glVertex2f(-45, -29);
+        glVertex2f(-55, -30);
+        glVertex2f(-65, -31);
+        glVertex2f(-110, -34);
+
+    glEnd();
+
+
+
+
+
+
+     glBegin(GL_POLYGON);   // down mut
+	glColor3ub(143, 131, 70);
+
+        glVertex2f(-110, -62);
+        glVertex2f(110, -62);
+
         glVertex2f(110, -60);
         glVertex2f(50, -57);
         glVertex2f(0, -56);
@@ -268,6 +324,27 @@ void river(){
         glVertex2f(-110, -60);
 
     glEnd();
+
+
+
+    glBegin(GL_POLYGON);   // down fild
+	glColor3ub(23, 219, 0);
+
+        glVertex2f(-110, -70);
+        glVertex2f(110, -70);
+
+        glVertex2f(110, -62);
+        glVertex2f(50, -59);
+        glVertex2f(0, -58);
+        glVertex2f(-50, -59);
+        glVertex2f(-110, -62);
+
+    glEnd();
+
+
+
+
+
 
 
 
@@ -543,7 +620,7 @@ glBegin(GL_POLYGON);
 void boat1(){
 
 glPushMatrix();
-glTranslatef(position,0.0f, 0.0f);
+glTranslatef(position1,0.0f, 0.0f);
 
     glBegin(GL_POLYGON);       // main boat
 	glColor3ub(158, 128, 61);
@@ -618,7 +695,7 @@ glFlush();
 void boat2(){
 
 glPushMatrix();
-glTranslatef(position1,-5.0f, 0.0f);
+glTranslatef(position,-5.0f, 0.0f);
 
     glBegin(GL_POLYGON);       // main boat
 	glColor3ub(158, 128, 61);
@@ -640,7 +717,7 @@ glTranslatef(position1,-5.0f, 0.0f);
 
 
     glBegin(GL_POLYGON);       // pall
-	glColor3ub(255, 190, 0);
+	glColor3ub(255, 139, 7);
         glVertex2f(60, -36);
         glVertex2f(70, -36);
         glVertex2f(69, -34);
@@ -691,13 +768,17 @@ glFlush();
 
 void fild(){
 
-    glBegin(GL_POLYGON);       // first son curve
-	glColor3ub(46, 215, 0);
-        glVertex2f(-110, -70);
-        glVertex2f(110, -70);
-        glVertex2f(110, -50);
-        glVertex2f(-110, -50);
+
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(32, 190, 19);
+        glVertex2f(-110, -35);
+        glVertex2f(110, -35);
+        glVertex2f(110, -10);
+        glVertex2f(-110, -10);
     glEnd();
+
+
 
 }
 
@@ -708,8 +789,8 @@ void display() {
     glLineWidth(7.5);
 
 
-    fild();
 
+    fild();
     river();
     river_line();
 
@@ -720,6 +801,7 @@ void display() {
 
     boat1();
     boat2();
+    lamp_post();
 
     glFlush();  // Render now
 }
