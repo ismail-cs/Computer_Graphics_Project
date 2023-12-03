@@ -1,6 +1,64 @@
 #include <windows.h>  // for MS Windows
 #include <GL/glut.h>  // GLUT, include glu.h and gl.h
 #include <math.h>
+#include<cstdio>
+
+
+
+
+
+
+GLfloat position = 65.0f;
+GLfloat position1 = -40.0f;
+GLfloat speed = 1.0f;
+
+void display();
+
+void update(int value) {
+
+    if(position <-190.0)
+        position = 70.0f;
+
+    position -= speed;
+
+	glutPostRedisplay();
+
+
+	glutTimerFunc(100,update,0);
+}
+
+
+
+void update1(int value) {
+
+    if(position1 >50.0)
+        position1 = -160.0f;
+
+    position1 += speed;
+
+	glutPostRedisplay();
+
+
+	glutTimerFunc(100,update1,0);
+}
+
+
+
+void disback(int val)
+{
+    glutDisplayFunc(display);
+}
+
+
+
+
+
+
+
+
+
+
+
 void circle(float radius, float xc, float yc, float r, float g, float b)
 {
     glBegin(GL_POLYGON);// Draw a Red 1x1 Square centered at origin
@@ -50,17 +108,8 @@ void tangle(float x1, float y1, float x2, float y2, float x3, float y3, float r,
 
 
 
-void sky(){
-
-    rectangle(-110, 60, 110, 60, 110, 90, -110, 90, 145, 180, 255);
-}
 
 
-void sun(){
-
-    circle(5.5, 35, 75, 245, 255, 0);
-
-}
 
 
 
@@ -491,8 +540,10 @@ glBegin(GL_POLYGON);
 
 
 
-void boat(){
+void boat1(){
 
+glPushMatrix();
+glTranslatef(position,0.0f, 0.0f);
 
     glBegin(GL_POLYGON);       // main boat
 	glColor3ub(158, 128, 61);
@@ -556,9 +607,99 @@ void boat(){
         glVertex2f(63, -41);
     glEnd();
 
+glPopMatrix();
+
+glFlush();
 
 }
 
+
+
+void boat2(){
+
+glPushMatrix();
+glTranslatef(position1,-5.0f, 0.0f);
+
+    glBegin(GL_POLYGON);       // main boat
+	glColor3ub(158, 128, 61);
+        glVertex2f(50, -40);
+        glVertex2f(55, -43.5);
+        glVertex2f(58, -44);
+        glVertex2f(72, -44);
+        glVertex2f(75, -43.5);
+        glVertex2f(80, -40);
+    glEnd();
+
+    glBegin(GL_POLYGON);       // bamboo
+	glColor3ub(95, 72, 23);
+        glVertex2f(64.5, -40);
+        glVertex2f(65.5, -40);
+        glVertex2f(65.5, -25);
+        glVertex2f(64.5, -25);
+    glEnd();
+
+
+    glBegin(GL_POLYGON);       // pall
+	glColor3ub(255, 190, 0);
+        glVertex2f(60, -36);
+        glVertex2f(70, -36);
+        glVertex2f(69, -34);
+        glVertex2f(68.7, -32);
+        glVertex2f(69, -29);
+        glVertex2f(70, -27);
+        glVertex2f(60, -27);
+        glVertex2f(59, -28);
+        glVertex2f(58.3, -32);
+        glVertex2f(59, -35);
+    glEnd();
+
+
+    glBegin(GL_POLYGON);
+	glColor3ub(168, 241, 255);
+        glVertex2f(50, -40);
+        glVertex2f(60, -41);
+        glVertex2f(70, -41);
+        glVertex2f(80, -40);
+    glEnd();
+
+
+
+    glBegin(GL_POLYGON);       // son
+	glColor3ub(189, 142, 37);
+        glVertex2f(63, -41);
+        glVertex2f(72, -41);
+        glVertex2f(71, -39);
+        glVertex2f(69, -37.7);
+        glVertex2f(60, -38);
+    glEnd();
+
+    glBegin(GL_POLYGON);       // first son curve
+	glColor3ub(125, 95, 29);
+        glVertex2f(57, -41);
+        glVertex2f(58, -39);
+        glVertex2f(60, -38);
+        glVertex2f(62, -39);
+        glVertex2f(63, -41);
+    glEnd();
+
+glPopMatrix();
+
+glFlush();
+
+}
+
+
+void fild(){
+
+    glBegin(GL_POLYGON);       // first son curve
+	glColor3ub(46, 215, 0);
+        glVertex2f(-110, -70);
+        glVertex2f(110, -70);
+        glVertex2f(110, -50);
+        glVertex2f(-110, -50);
+    glEnd();
+
+}
 
 
 void display() {
@@ -566,13 +707,19 @@ void display() {
     glClear(GL_COLOR_BUFFER_BIT);         // Clear the color buffer (background)
     glLineWidth(7.5);
 
-    sky();
+
+    fild();
+
     river();
     river_line();
-    sun();
+
+
     road();
     road_mid_line(180,180,180);
-    boat();
+
+
+    boat1();
+    boat2();
 
     glFlush();  // Render now
 }
@@ -586,6 +733,8 @@ int main(int argc, char** argv) {
     glutCreateWindow("OpenGL Setup Test");
 
     glutDisplayFunc(display);// Register display callback handler for window re-paint
+    glutTimerFunc(100, update, 0);
+    glutTimerFunc(100, update1, 0);
     gluOrtho2D(-110.0, 110.0, -70.0, 90.0);
     glutMainLoop();           // Enter the event-processing loop
     return 0;
