@@ -4,6 +4,7 @@
 #include <GL/glut.h>  // GLUT, include glu.h and gl.h
 #include <math.h>
 #include<cstdio>
+using namespace std;
 
 
 
@@ -253,134 +254,34 @@ void road_mid_line(int r, int g, int b){   // cross croo line
 
 void lamp_post(){
 
-    glBegin(GL_POLYGON);   // 1 main line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-105, -25);
-        glVertex2f(-104.4, -25);
-        glVertex2f(-104.4, -19);
-        glVertex2f(-105, -19);
-    glEnd();
+    int x = -105, y= -25;
 
-    circle(0.6, -103.5, -17.6, 130, 120, 0);  // light
+    for(int i =0, j=0; i<22; i++, j++){
 
-    glBegin(GL_POLYGON);   // upp line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-105, -19);
-        glVertex2f(-104.4, -19);
-        glVertex2f(-103.4, -17);
-        glVertex2f(-104, -17);
-    glEnd();
+        glBegin(GL_POLYGON);   // main line
+        glColor3ub(59, 81, 0);
+            glVertex2f(x, y);
+            glVertex2f(x+0.6, y);
+            glVertex2f(x+0.6, y+6);
+            glVertex2f(x, y+6);
+        glEnd();
 
+        circle(0.6, x+1.5, y+7.4, 130, 120, 0);  // light
 
+        glBegin(GL_POLYGON);   // up line
+        glColor3ub(59, 81, 0);
+            glVertex2f(x, y+6);
+            glVertex2f(x+0.6, y+6);
+            glVertex2f(x+1.6, y+8);
+            glVertex2f(x+1, y+8);
+        glEnd();
 
+        x += 10;
+        if(j%2==0){
+            y++;
+        }
 
-
-    glBegin(GL_POLYGON);   // 2 main line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-95, -25);
-        glVertex2f(-94.4, -25);
-        glVertex2f(-94.4, -19);
-        glVertex2f(-95, -19);
-    glEnd();
-
-    circle(0.6, -93.5, -17.6, 130, 120, 0);  // light
-
-    glBegin(GL_POLYGON);   // upp line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-95, -19);
-        glVertex2f(-94.4, -19);
-        glVertex2f(-93.4, -17);
-        glVertex2f(-94, -17);
-    glEnd();
-
-
-
-
-    glBegin(GL_POLYGON);   // 3 main line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-85, -24);
-        glVertex2f(-84.4, -24);
-        glVertex2f(-84.4, -18);
-        glVertex2f(-85, -18);
-    glEnd();
-
-    circle(0.6, -83.5, -16.6, 130, 120, 0);  // light
-
-    glBegin(GL_POLYGON);   // upp line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-85, -18);
-        glVertex2f(-84.4, -18);
-        glVertex2f(-83.4, -16);
-        glVertex2f(-84, -16);
-    glEnd();
-
-
-
-
-
-    glBegin(GL_POLYGON);   // 4 main line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-75, -24);
-        glVertex2f(-74.4, -24);
-        glVertex2f(-74.4, -18);
-        glVertex2f(-75, -18);
-    glEnd();
-
-    circle(0.6, -73.5, -16.6, 130, 120, 0);  // light
-
-    glBegin(GL_POLYGON);   // upp line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-75, -18);
-        glVertex2f(-74.4, -18);
-        glVertex2f(-73.4, -16);
-        glVertex2f(-74, -16);
-    glEnd();
-
-
-
-
-
-    glBegin(GL_POLYGON);   // 5 main line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-65, -23);
-        glVertex2f(-64.4, -23);
-        glVertex2f(-64.4, -17);
-        glVertex2f(-65, -17);
-    glEnd();
-
-    circle(0.6, -63.5, -15.6, 130, 120, 0);  // light
-
-    glBegin(GL_POLYGON);   // upp line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-65, -17);
-        glVertex2f(-64.4, -17);
-        glVertex2f(-63.4, -15);
-        glVertex2f(-64, -15);
-    glEnd();
-
-
-
-
-
-    glBegin(GL_POLYGON);   // 6 main line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-55, -23);
-        glVertex2f(-54.4, -23);
-        glVertex2f(-54.4, -17);
-        glVertex2f(-55, -17);
-    glEnd();
-
-    circle(0.6, -53.5, -15.6, 130, 120, 0);  // light
-
-    glBegin(GL_POLYGON);   // upp line
-	glColor3ub(59, 81, 0);
-        glVertex2f(-55, -17);
-        glVertex2f(-54.4, -17);
-        glVertex2f(-53.4, -15);
-        glVertex2f(-54, -15);
-    glEnd();
-
-
+    }
 }
 
 void river(){
