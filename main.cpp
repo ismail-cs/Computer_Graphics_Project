@@ -373,10 +373,10 @@ void river(){
 }
 
 
-void river_line(){
+void river_line(int r, int g, int b){
 
 glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-60, -40);
         glVertex2f(-45, -40.5);
         glVertex2f(-35, -40);
@@ -386,7 +386,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-60, -30);
         glVertex2f(-30, -30);
         glVertex2f(-30, -29.5);
@@ -395,7 +395,7 @@ glBegin(GL_POLYGON);
     glEnd();
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(50, -40);
         glVertex2f(20, -40);
         glVertex2f(20, -39.5);
@@ -404,7 +404,7 @@ glBegin(GL_POLYGON);
     glEnd();
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-20, -38);
         glVertex2f(20, -38);
         glVertex2f(20, -37.5);
@@ -414,7 +414,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-55, -34);
         glVertex2f(-40, -34.5);
         glVertex2f(-15, -34);
@@ -426,7 +426,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(40, -34);
         glVertex2f(65, -34);
         glVertex2f(65, -33);
@@ -436,7 +436,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-75, -37);
         glVertex2f(-50, -37);
         glVertex2f(-52, -36.5);
@@ -445,7 +445,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-15, -30);
         glVertex2f(-5, -30);
         glVertex2f(-4, -31);
@@ -466,7 +466,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-90, -50);
         glVertex2f(-75, -50.5);
         glVertex2f(-65, -50);
@@ -476,7 +476,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-90, -40);
         glVertex2f(-60, -40);
         glVertex2f(-60, -39.5);
@@ -485,7 +485,7 @@ glBegin(GL_POLYGON);
     glEnd();
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(20, -50);
         glVertex2f(-10, -50);
         glVertex2f(-10, -49.5);
@@ -494,7 +494,7 @@ glBegin(GL_POLYGON);
     glEnd();
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-50, -48);
         glVertex2f(-10, -48);
         glVertex2f(-10, -47.5);
@@ -504,7 +504,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-85, -44);
         glVertex2f(-80, -44.5);
         glVertex2f(-45, -44);
@@ -516,7 +516,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(10, -44);
         glVertex2f(35, -44);
         glVertex2f(35, -43);
@@ -526,7 +526,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-105, -47);
         glVertex2f(-80, -47);
         glVertex2f(-82, -46.5);
@@ -535,7 +535,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-45, -40);
         glVertex2f(-35, -40);
         glVertex2f(-34, -41);
@@ -555,7 +555,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-30, -50);
         glVertex2f(-15, -50.5);
         glVertex2f(-5, -50);
@@ -565,7 +565,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-30, -40);
         glVertex2f(-0, -40);
         glVertex2f(-0, -39.5);
@@ -574,7 +574,7 @@ glBegin(GL_POLYGON);
     glEnd();
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(80, -50);
         glVertex2f(50, -50);
         glVertex2f(50, -49.5);
@@ -583,7 +583,7 @@ glBegin(GL_POLYGON);
     glEnd();
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(10, -48);
         glVertex2f(50, -48);
         glVertex2f(50, -47.5);
@@ -593,7 +593,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-25, -44);
         glVertex2f(-20, -44.5);
         glVertex2f(15, -44);
@@ -605,7 +605,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(70, -44);
         glVertex2f(95, -44);
         glVertex2f(95, -43);
@@ -615,7 +615,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(-45, -47);
         glVertex2f(-20, -47);
         glVertex2f(-22, -46.5);
@@ -624,7 +624,7 @@ glBegin(GL_POLYGON);
 
 
     glBegin(GL_POLYGON);
-	glColor3ub(147, 224, 240);
+	glColor3ub(r, g, b);
         glVertex2f(15, -40);
         glVertex2f(25, -40);
         glVertex2f(24, -41);
@@ -792,7 +792,7 @@ void fild(){
 
 
     glBegin(GL_POLYGON);   // main road
-	glColor3ub(32, 190, 19);
+	glColor3ub(24, 104, 0);
         glVertex2f(-110, -35);
         glVertex2f(110, -35);
         glVertex2f(110, -10);
@@ -813,7 +813,7 @@ void display() {
 
     fild();
     river();
-    river_line();
+    river_line(147, 224, 240);
 
 
     road();
