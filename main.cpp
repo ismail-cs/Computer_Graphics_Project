@@ -373,7 +373,7 @@ void river(){
 }
 
 
-void river_line(int r, int g, int b){
+void river_wave(int r, int g, int b){
 
 glBegin(GL_POLYGON);
 	glColor3ub(r, g, b);
@@ -804,6 +804,140 @@ void fild(){
 }
 
 
+
+void grass(){
+
+
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(8, 167, 0);
+        glVertex2f(-106, -66);
+        glVertex2f(-104, -66);
+        glVertex2f(-105, -63);
+        glVertex2f(-108, -59);
+        glVertex2f(-107, -62);
+        glVertex2f(-106, -66);
+    glEnd();
+
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(8, 167, 0);
+        glVertex2f(-104, -65);
+        glVertex2f(-102, -65);
+        glVertex2f(-101.5, -62);
+        glVertex2f(-100, -58);
+        glVertex2f(-103, -62);
+        glVertex2f(-104, -65);
+    glEnd();
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(6, 140, 0);
+        glVertex2f(-104, -66);
+        glVertex2f(-103.5, -64);
+        glVertex2f(-104, -62);
+        glVertex2f(-106, -59);
+        glVertex2f(-105, -62);
+        glVertex2f(-104, -66);
+    glEnd();
+
+
+
+}
+
+
+
+
+
+void car(){
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(188, 0, 0);
+        glVertex2f(24.2, -14.6);
+        glVertex2f(45.5, -13);
+        glVertex2f(45.4, -10.2);
+        glVertex2f(44.7, -9.5);
+
+        glVertex2f(40.5, -9.5);
+        glVertex2f(38, -7.5);
+        glVertex2f(31, -8);
+        glVertex2f(29.3, -10.3);
+
+        glVertex2f(24.6, -11.2);
+        glVertex2f(24, -12);
+        glVertex2f(24.2, -14.6);
+
+    glEnd();
+
+
+
+    glBegin(GL_POLYGON);   // glass s
+	glColor3ub(71, 71, 71);
+        glVertex2f(29.9, -10.2);
+        glVertex2f(34.7, -9.9);
+        glVertex2f(34.5, -8.2);
+        glVertex2f(31.2, -8.4);
+        glVertex2f(29.9, -10.2);
+    glEnd();
+
+
+
+    glBegin(GL_POLYGON);   // glass b
+	glColor3ub(71, 71, 71);
+        glVertex2f(35.1, -9.9);
+        glVertex2f(40, -9.5);
+        glVertex2f(38, -7.9);
+        glVertex2f(34.9, -8.1);
+        glVertex2f(35.1, -9.9);
+    glEnd();
+
+
+
+
+
+    circle(1.5, 29, -14.2, 70, 62, 56 );
+    circle(1.5, 40.8, -13.4, 70, 62, 56);
+
+}
+
+
+
+
+
+void sky(int r, int g, int b){
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(r, g, b);
+        glVertex2f(-110, 90);
+        glVertex2f(-110, 50);
+        glVertex2f(110, 50);
+        glVertex2f(110, 90);
+    glEnd();
+
+}
+
+
+
+void up_fild(int r, int g, int b){
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(r, g, b);
+        glVertex2f(-110, 50);
+        glVertex2f(-110, 0);
+        glVertex2f(110, 0);
+        glVertex2f(110, 50);
+    glEnd();
+
+}
+
+
+void sun(int r, int g, int b){
+    circle(5, 40, 70, r, g, b);
+}
+
+
+
+
+
 void display() {
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // Set background color to black and opaque
     glClear(GL_COLOR_BUFFER_BIT);         // Clear the color buffer (background)
@@ -813,16 +947,24 @@ void display() {
 
     fild();
     river();
-    river_line(147, 224, 240);
-
+    river_wave(147, 224, 240);
+    sky(89, 216, 250);
+    up_fild(94, 250, 89);
+    sun(233, 255, 15);
 
     road();
     road_mid_line(180,180,180);
+    car();
+    lamp_post();
+    grass();
+
+
 
 
     boat1();
+
     boat2();
-    lamp_post();
+
 
     glFlush();  // Render now
 }
