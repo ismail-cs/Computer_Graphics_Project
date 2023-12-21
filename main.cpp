@@ -805,40 +805,83 @@ void fild(){
 
 
 
-void grass(){
+void grass(int x, int y){
 
-
-
-    glBegin(GL_POLYGON);   // main road
-	glColor3ub(8, 167, 0);
-        glVertex2f(-106, -66);
-        glVertex2f(-104, -66);
-        glVertex2f(-105, -63);
-        glVertex2f(-108, -59);
-        glVertex2f(-107, -62);
-        glVertex2f(-106, -66);
+    glBegin(GL_POLYGON);   // 1
+	glColor3ub(6, 140, 0);
+        glVertex2f(x, y);
+        glVertex2f(x-.5, y+1.5);
+        glVertex2f(x-1.5, y+3);
+        glVertex2f(x, y+2);
+        glVertex2f(x+1.5, y);
     glEnd();
 
 
-    glBegin(GL_POLYGON);   // main road
-	glColor3ub(8, 167, 0);
-        glVertex2f(-104, -65);
-        glVertex2f(-102, -65);
-        glVertex2f(-101.5, -62);
-        glVertex2f(-100, -58);
-        glVertex2f(-103, -62);
-        glVertex2f(-104, -65);
+
+    glBegin(GL_POLYGON);   // 2
+	glColor3ub(6, 140, 0);
+        glVertex2f(x+1, y);
+        glVertex2f(x, y+3.5);
+        glVertex2f(x-1.5, y+6);
+        glVertex2f(x+1, y+3);
+        glVertex2f(x+2, y);
+
+    glEnd();
+
+
+    glBegin(GL_POLYGON);   // 3
+	glColor3ub(6, 140, 0);
+        glVertex2f(x+2, y);
+        glVertex2f(x+1, y+4);
+        glVertex2f(x, y+7);
+        glVertex2f(x+2, y+4);
+        glVertex2f(x+2.5, y+2);
     glEnd();
 
     glBegin(GL_POLYGON);   // main road
 	glColor3ub(6, 140, 0);
-        glVertex2f(-104, -66);
-        glVertex2f(-103.5, -64);
-        glVertex2f(-104, -62);
-        glVertex2f(-106, -59);
-        glVertex2f(-105, -62);
-        glVertex2f(-104, -66);
+        glVertex2f(x+2.8, y+1);
+        glVertex2f(x+3.5, y+4);
+        glVertex2f(x+6.5, y+7.5);
+        glVertex2f(x+5, y+4);
+        glVertex2f(x+4, y);
     glEnd();
+
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(6, 140, 0);
+        glVertex2f(x+4, y);
+        glVertex2f(x+6, y+4);
+        glVertex2f(x+8, y+6);
+        glVertex2f(x+6.5, y+4);
+        glVertex2f(x+6, y+2);
+        glVertex2f(x+5.8, y);
+    glEnd();
+
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(0, 135, 8);
+        glVertex2f(x+2.4, y+1.5);
+        glVertex2f(x+2.9, y+6);
+
+        glVertex2f(x+3.4, y+8);
+        glVertex2f(x+4.28, y+9);
+        glVertex2f(x+4.4, y+8.8);
+        glVertex2f(x+3.7, y+8);
+
+        glVertex2f(x+3.2, y+6);
+        glVertex2f(x+2.8, y+1.6);
+    glEnd();
+
+
+
+     circle(0.75, x+3.6, y+8, 255, 114, 39 );
+     circle(0.75, x+2.7, y+9, 255, 114, 39 );
+     circle(0.75, x+3.6, y+9.95, 255, 114, 39 );
+     circle(0.75, x+4.95, y+9.65, 255, 114, 39 );
+     circle(0.75, x+5, y+8.2, 255, 114, 39 );
+
+     circle(0.75, x+4, y+9, 185, 0, 0 );
 
 
 
@@ -956,7 +999,13 @@ void display() {
     road_mid_line(180,180,180);
     car();
     lamp_post();
-    grass();
+    grass(-106, -66);
+    grass(-95, -66);
+    grass(-100, -64);
+    grass(-111, -70);
+    grass(-104, -71);
+
+    grass(-91, -68);
 
 
 
