@@ -13,7 +13,12 @@ using namespace std;
 
 GLfloat position = 65.0f;
 GLfloat position1 = -40.0f;
+
+GLfloat car1_position_x = -40.0f;
+GLfloat car1_position_y = -1.0f;
+
 GLfloat speed = 1.0f;
+GLfloat car_1_speed = 2.0f;
 
 void display();
 
@@ -43,6 +48,24 @@ void update1(int value) {
 
 
 	glutTimerFunc(100,update1,0);
+}
+
+
+
+void car1(int value) {
+
+    if(car1_position_x >80.0){
+        car1_position_x = -160.0f;
+        car1_position_y = -7.0f;
+    }
+
+    car1_position_x += car_1_speed;
+    car1_position_y += 0.1;
+
+	glutPostRedisplay();
+
+
+	glutTimerFunc(100,car1,0);
 }
 
 
@@ -105,16 +128,6 @@ void tangle(float x1, float y1, float x2, float y2, float x3, float y3, float r,
         glVertex2f(x1, y1);
     glEnd();
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -707,7 +720,6 @@ glTranslatef(position1,0.0f, 0.0f);
 
 glPopMatrix();
 
-glFlush();
 
 }
 
@@ -782,7 +794,7 @@ glTranslatef(position,-5.0f, 0.0f);
 
 glPopMatrix();
 
-glFlush();
+
 
 }
 
@@ -891,7 +903,11 @@ void grass(int x, int y){
 
 
 
-void car(){
+void car1(){
+
+
+glPushMatrix();
+glTranslatef(car1_position_x,car1_position_y, 0.0f);
 
     glBegin(GL_POLYGON);   // main road
 	glColor3ub(188, 0, 0);
@@ -934,11 +950,11 @@ void car(){
     glEnd();
 
 
-
-
-
     circle(1.5, 29, -14.2, 70, 62, 56 );
     circle(1.5, 40.8, -13.4, 70, 62, 56);
+
+
+glPopMatrix();
 
 }
 
@@ -997,7 +1013,7 @@ void display() {
 
     road();
     road_mid_line(180,180,180);
-    car();
+    car1();
     lamp_post();
     grass(-106, -66);
     grass(-95, -66);
@@ -1006,8 +1022,6 @@ void display() {
     grass(-104, -71);
 
     grass(-91, -68);
-
-
 
 
     boat1();
@@ -1029,6 +1043,8 @@ int main(int argc, char** argv) {
     glutDisplayFunc(display);// Register display callback handler for window re-paint
     glutTimerFunc(100, update, 0);
     glutTimerFunc(100, update1, 0);
+    glutTimerFunc(100, car1, 0);
+
     gluOrtho2D(-110.0, 110.0, -70.0, 90.0);
     glutMainLoop();           // Enter the event-processing loop
     return 0;
