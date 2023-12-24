@@ -16,13 +16,19 @@ GLfloat position1 = -40.0f;
 
 GLfloat car1_position_x = -40.0f;
 GLfloat car1_position_y = -1.0f;
+GLfloat car_1_speed = 2.0f;
 
 GLfloat speed = 1.0f;
-GLfloat car_1_speed = 2.0f;
+
+
+
+GLfloat car2_position_x = -40.0f;
+GLfloat car2_position_y = 1.0f;
+GLfloat car_2_speed = 2.0f;
 
 void display();
 
-void update(int value) {
+void boat_animation_1(int value) {
 
     if(position <-190.0)
         position = 70.0f;
@@ -32,12 +38,12 @@ void update(int value) {
 	glutPostRedisplay();
 
 
-	glutTimerFunc(100,update,0);
+	glutTimerFunc(100,boat_animation_1,0);
 }
 
 
 
-void update1(int value) {
+void boat_animation_2(int value) {
 
     if(position1 >50.0)
         position1 = -160.0f;
@@ -47,12 +53,12 @@ void update1(int value) {
 	glutPostRedisplay();
 
 
-	glutTimerFunc(100,update1,0);
+	glutTimerFunc(100,boat_animation_2,0);
 }
 
 
 
-void car1(int value) {
+void car_animation_1(int value) {
 
     if(car1_position_x >80.0){
         car1_position_x = -160.0f;
@@ -65,7 +71,24 @@ void car1(int value) {
 	glutPostRedisplay();
 
 
-	glutTimerFunc(100,car1,0);
+	glutTimerFunc(100,car_animation_1,0);
+}
+
+
+void car_animation_2(int value) {
+
+    if(car2_position_x < -160.0){
+        car2_position_x = 80.0f;
+        car2_position_y = 6.0f;
+    }
+
+    car2_position_x -= car_2_speed;
+    car2_position_y -= 0.08;
+
+	glutPostRedisplay();
+
+
+	glutTimerFunc(100,car_animation_2,0);
 }
 
 
@@ -173,6 +196,7 @@ void road(){ //main road
 
 
 }
+
 
 void road_mid_line(int r, int g, int b){   // cross croo line
     glBegin(GL_POLYGON);
@@ -297,7 +321,7 @@ void lamp_post(){
     }
 }
 
-void river(){
+void river(int r, int g, int b){
 
     glBegin(GL_POLYGON);   // upp mut
 	glColor3ub(143, 131, 70);
@@ -321,7 +345,7 @@ void river(){
 
 
     glBegin(GL_POLYGON);   // main river
-	glColor3ub(168, 241, 255);
+	glColor3ub(r, g, b);
 
         glVertex2f(-110, -60);
         glVertex2f(110, -60);
@@ -650,7 +674,6 @@ glBegin(GL_POLYGON);
 }
 
 
-
 void boat1(){
 
 glPushMatrix();
@@ -722,7 +745,6 @@ glPopMatrix();
 
 
 }
-
 
 
 void boat2(){
@@ -799,22 +821,16 @@ glPopMatrix();
 }
 
 
-void fild(){
+void fild(int r, int g, int b){
 
-
-
-    glBegin(GL_POLYGON);   // main road
-	glColor3ub(24, 104, 0);
+    glBegin(GL_POLYGON);   // river up fild
+	glColor3ub(r, g, b);
         glVertex2f(-110, -35);
         glVertex2f(110, -35);
         glVertex2f(110, -10);
         glVertex2f(-110, -10);
     glEnd();
-
-
-
 }
-
 
 
 void grass(int x, int y){
@@ -900,17 +916,14 @@ void grass(int x, int y){
 }
 
 
-
-
-
-void car1(){
+void car1(int r, int g, int b){
 
 
 glPushMatrix();
 glTranslatef(car1_position_x,car1_position_y, 0.0f);
 
     glBegin(GL_POLYGON);   // main road
-	glColor3ub(188, 0, 0);
+	glColor3ub(r, g, b);
         glVertex2f(24.2, -14.6);
         glVertex2f(45.5, -13);
         glVertex2f(45.4, -10.2);
@@ -959,7 +972,60 @@ glPopMatrix();
 }
 
 
+void car2(int r, int g, int b){
 
+
+glPushMatrix();
+glTranslatef(car2_position_x,car2_position_y, 0.0f);
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(r, g, b);
+        glVertex2f(24.2, -6.6);
+        glVertex2f(45.5, -6);
+        glVertex2f(45.4, -3.2);
+        glVertex2f(44.7, -2.5);
+
+        glVertex2f(40.5, -2.5);
+        glVertex2f(38, -0.5);
+        glVertex2f(31, -1);
+        glVertex2f(29.3, -3.3);
+
+        glVertex2f(24.6, -4.2);
+        glVertex2f(24, -5);
+        glVertex2f(24.2, -7.6);
+
+    glEnd();
+
+
+
+    glBegin(GL_POLYGON);   // glass s
+	glColor3ub(71, 71, 71);
+        glVertex2f(29.9, -3.2);
+        glVertex2f(34.7, -2.9);
+        glVertex2f(34.5, -1.2);
+        glVertex2f(31.2, -1.4);
+        glVertex2f(29.9, -3.2);
+    glEnd();
+
+
+
+    glBegin(GL_POLYGON);   // glass b
+	glColor3ub(71, 71, 71);
+        glVertex2f(35.1, -2.9);
+        glVertex2f(40, -2.5);
+        glVertex2f(38, -0.9);
+        glVertex2f(34.9, -1.1);
+        glVertex2f(35.1, -2.9);
+    glEnd();
+
+
+    circle(1.5, 29, -7.2, 70, 62, 56 );
+    circle(1.5, 40.8, -6.4, 70, 62, 56);
+
+
+glPopMatrix();
+
+}
 
 
 void sky(int r, int g, int b){
@@ -975,7 +1041,6 @@ void sky(int r, int g, int b){
 }
 
 
-
 void up_fild(int r, int g, int b){
 
     glBegin(GL_POLYGON);   // main road
@@ -989,13 +1054,61 @@ void up_fild(int r, int g, int b){
 }
 
 
-void sun(int r, int g, int b){
-    circle(5, 40, 70, r, g, b);
+void house1(int r, int g, int b){
+
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(r, g, b);
+        glVertex2f(-81, 51.5);
+        glVertex2f(-69.4, 50.8);
+        glVertex2f(-76.1, 60);
+    glEnd();
+
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(164, 0, 137);
+        glVertex2f(-69.4, 50.8);
+        glVertex2f(-52.4, 52);
+        glVertex2f(-59.6, 60.5);
+        glVertex2f(-76.1, 60);
+    glEnd();
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(r, g, b);
+        glVertex2f(-80, 43);
+        glVertex2f(-69.1, 41.8);
+        glVertex2f(-69.4, 50.8);
+        glVertex2f(-80.1 , 51.4);
+    glEnd();
+
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(r, g, b);
+        glVertex2f(-69.1, 41.8);
+        glVertex2f(-53.38, 43.64);
+        glVertex2f(-53.46, 51.92);
+        glVertex2f(-69.4 , 50.8);
+    glEnd();
+
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(121, 105, 0);
+        glVertex2f(-81.1, 41.5);
+        glVertex2f(-69.1, 40.43);
+        glVertex2f(-69.1, 41.8);
+        glVertex2f(-81.1, 43);
+    glEnd();
+
+    glBegin(GL_POLYGON);   // main road
+	glColor3ub(121, 105, 0);
+        glVertex2f(-69.1, 40.3);
+        glVertex2f(-52, 42.4);
+        glVertex2f(-52.1, 43.8);
+        glVertex2f(-69.1, 41.8);
+    glEnd();
+
+
 }
-
-
-
-
 
 void display() {
     glClearColor(1.0f, 1.0f, 1.0f, 1.0f); // Set background color to black and opaque
@@ -1004,16 +1117,16 @@ void display() {
 
 
 
-    fild();
-    river();
+    fild(64, 200, 0);
+    river(168, 241, 255);
     river_wave(147, 224, 240);
     sky(89, 216, 250);
     up_fild(94, 250, 89);
-    sun(233, 255, 15);
 
     road();
     road_mid_line(180,180,180);
-    car1();
+    car1(188, 0, 0);
+    car2(255, 216, 0);
     lamp_post();
     grass(-106, -66);
     grass(-95, -66);
@@ -1027,6 +1140,7 @@ void display() {
     boat1();
 
     boat2();
+    house1(0, 179, 200);
 
 
     glFlush();  // Render now
@@ -1041,9 +1155,10 @@ int main(int argc, char** argv) {
     glutCreateWindow("OpenGL Setup Test");
 
     glutDisplayFunc(display);// Register display callback handler for window re-paint
-    glutTimerFunc(100, update, 0);
-    glutTimerFunc(100, update1, 0);
-    glutTimerFunc(100, car1, 0);
+    glutTimerFunc(100, boat_animation_1, 0);
+    glutTimerFunc(100, boat_animation_2, 0);
+    glutTimerFunc(100, car_animation_1, 0);
+    glutTimerFunc(100, car_animation_2, 0);
 
     gluOrtho2D(-110.0, 110.0, -70.0, 90.0);
     glutMainLoop();           // Enter the event-processing loop
